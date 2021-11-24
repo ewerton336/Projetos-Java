@@ -1,0 +1,38 @@
+<%@ page pageEncoding="UTF-8" %>
+<h2>Aluno: Ewerton Guimarães</h2>
+
+<%
+    if(request.getParameter("session.login")!=null){
+        if(!request.getParameter("session.username").isEmpty()){
+            String username = request.getParameter("session.username");
+            session.setAttribute("session.username", username);
+            response.sendRedirect(request.getRequestURI());
+        }else{
+            out.println("Usuário não informado");
+        }
+    }
+    else if(request.getParameter("session.logout")!=null){
+        session.removeAttribute("session.username");
+        response.sendRedirect(request.getRequestURI());
+    }
+%>
+
+
+
+<%if(session.getAttribute("session.username") == null){%>
+<h4>Efetue Login</h4>
+    <form>
+        <input type="text" name="session.username"/>
+        <input type="submit" name="session.login" value="Entrar"/>
+    </form>
+    
+<%}else{%>
+    <form>
+        Bem vindo, <h4> <%= session.getAttribute("session.username") %></h4>
+        <input type="submit" name="session.logout" value="Sair"/> | 
+        <a href="index.jsp">INDEX</a> |
+        <a href="disciplinas.jsp">DISCIPLINAS</a>
+    </form>
+<%}%>
+
+<hr style="width:100%;text-align:left;margin-left:0">

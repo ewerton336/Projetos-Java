@@ -1,0 +1,14 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="./home.jsp">Início</a></li>
+      <li><a href="#">Página 2</a></li>
+      <li><a href="#">Página 3</a></li>
+    </ul>
+  </div>
+</nav>
